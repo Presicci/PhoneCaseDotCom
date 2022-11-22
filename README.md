@@ -9,3 +9,6 @@ python -m pip install 'environs[django]==9.5.0'
 
 to run:\
 python manage.py runserver
+
+to created admin user:\
+python manage.py createsuperuser
