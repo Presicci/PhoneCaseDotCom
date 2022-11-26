@@ -49,7 +49,14 @@
         </header>
         <!-- Section-->
         <section class="py-5">
-            <ul class="d-flex justify-content-end me-5">
+            <ul class="d-flex justify-content-end me-5 gap-lg-3">
+                <form method="POST">
+                    {% csrf_token %}
+                    <label>
+                        <input type="search" name="search" placeholder="Search...">
+                    </label>
+                    <button>Search</button>
+                </form>
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">Sort by</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -87,6 +94,12 @@
                             <form method="POST" action="">
                                 {% csrf_token %}
                                 <input class="dropdown-item" type="submit" name="sort" value ='Alphabetical - Z-A'>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" name="search" value ='z'>
                             </form>
                         </li>
                     </ul>
