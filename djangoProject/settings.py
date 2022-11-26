@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'software-eng-project.herokuapp.com']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 
-#CSRF_TRUSTED_ORIGINS = ['']
+CSRF_TRUSTED_ORIGINS = ['https://software-eng-project.herokuapp.com']
 
 # Application definition
 
