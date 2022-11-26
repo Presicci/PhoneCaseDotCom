@@ -96,12 +96,6 @@
                                 <input class="dropdown-item" type="submit" name="sort" value ='Alphabetical - Z-A'>
                             </form>
                         </li>
-                        <li>
-                            <form method="POST" action="">
-                                {% csrf_token %}
-                                <input class="dropdown-item" type="submit" name="search" value ='z'>
-                            </form>
-                        </li>
                     </ul>
             </ul>
             {% if query_results|length > 0 %}
