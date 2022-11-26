@@ -1,8 +1,10 @@
 # home/views.py
 from django.shortcuts import render
 from .models import Product
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 def home_view(request):
     post_result = request.POST.get("sort", "")
     search_result = request.POST.get("search", "")

@@ -51,7 +51,6 @@
         <section class="py-5">
             <ul class="d-flex justify-content-end me-5 gap-lg-3">
                 <form method="POST">
-                    {% csrf_token %}
                     <label>
                         <input type="search" name="search" placeholder="Search...">
                     </label>
@@ -62,37 +61,31 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
                             <form method="POST" action="">
-                                {% csrf_token %}
                                 <input class="dropdown-item" type="submit" name="sort" value ='Price - Low to high'>
                             </form>
                         </li>
                         <li>
                             <form method="POST" action="">
-                                {% csrf_token %}
                                 <input class="dropdown-item" type="submit" name="sort" value ='Price - High to low'>
                             </form>
                         </li>
                         <li>
                             <form method="POST" action="">
-                                {% csrf_token %}
                                 <input class="dropdown-item" type="submit" name="sort" value ='Availability - Low to high'>
                             </form>
                         </li>
                         <li>
                             <form method="POST" action="">
-                                {% csrf_token %}
                                 <input class="dropdown-item" type="submit" name="sort" value ='Availability - High to low'>
                             </form>
                         </li>
                         <li>
                             <form method="POST" action="">
-                                {% csrf_token %}
                                 <input class="dropdown-item" type="submit" name="sort" value ='Alphabetical - A-Z'>
                             </form>
                         </li>
                         <li>
                             <form method="POST" action="">
-                                {% csrf_token %}
                                 <input class="dropdown-item" type="submit" name="sort" value ='Alphabetical - Z-A'>
                             </form>
                         </li>
