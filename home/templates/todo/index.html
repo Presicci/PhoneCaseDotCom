@@ -49,10 +49,22 @@
         </header>
         <!-- Section-->
         <section class="py-5">
+            <ul class="d-flex justify-content-end me-5">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">Sort by</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Price - Low to high</a></li>
+                        <li><a class="dropdown-item" href="#!">Price - High to low</a></li>
+                        <li><a class="dropdown-item" href="#!">Availability - Low to high</a></li>
+                        <li><a class="dropdown-item" href="#!">Availability - High to low</a></li>
+                        <li><a class="dropdown-item" href="#!">Alphabetical - A-Z</a></li>
+                        <li><a class="dropdown-item" href="#!">Alphabetical - Z-A</a></li>
+                    </ul>
+            </ul>
             {% if query_results|length > 0 %}
-            <div class="container px-4 px-lg-5 mt-5">
+                <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                        {% for item in query_results %}
+                {% for item in query_results|dictsort:"name" %}
                             <div class="col mb-5">
                                 <div class="card h-100">
                                     <!-- Product image-->
