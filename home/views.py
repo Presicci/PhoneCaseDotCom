@@ -25,4 +25,4 @@ def home_view(request):
     else:
         query_results = Product.objects.filter(name__contains=name_filter).order_by('name')
     context = {'query_results': query_results}
-    return render(request, 'todo/templates/index.html', context)
+    return render(request, 'index.html', context)
