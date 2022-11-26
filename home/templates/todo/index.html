@@ -105,6 +105,11 @@
                                             <!-- Product name-->
                                             <h5 class="fw-bolder">{{ item.name }}</h5>
                                             <!-- Product price-->
+                                            {% if item.quantity == 0 %}
+                                                <span style="color: #ff0000">Out of stock<br></span>
+                                            {% else %}
+                                                <span style="color: #00ff00">Only {{ item.quantity }} left!<br></span>
+                                            {% endif %}
                                             ${{ item.price }}
                                         </div>
                                     </div>
