@@ -53,18 +53,48 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">Sort by</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Price - Low to high</a></li>
-                        <li><a class="dropdown-item" href="#!">Price - High to low</a></li>
-                        <li><a class="dropdown-item" href="#!">Availability - Low to high</a></li>
-                        <li><a class="dropdown-item" href="#!">Availability - High to low</a></li>
-                        <li><a class="dropdown-item" href="#!">Alphabetical - A-Z</a></li>
-                        <li><a class="dropdown-item" href="#!">Alphabetical - Z-A</a></li>
+                        <li>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" name="sort" value ='Price - Low to high'>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" name="sort" value ='Price - High to low'>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" name="sort" value ='Availability - Low to high'>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" name="sort" value ='Availability - High to low'>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" name="sort" value ='Alphabetical - A-Z'>
+                            </form>
+                        </li>
+                        <li>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <input class="dropdown-item" type="submit" name="sort" value ='Alphabetical - Z-A'>
+                            </form>
+                        </li>
                     </ul>
             </ul>
             {% if query_results|length > 0 %}
                 <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                {% for item in query_results|dictsort:"name" %}
+                {% for item in query_results %}
                             <div class="col mb-5">
                                 <div class="card h-100">
                                     <!-- Product image-->
