@@ -7,9 +7,9 @@ from django.views.decorators.csrf import csrf_exempt
 @csrf_exempt
 def home_view(request):
     post_result = request.POST.get("sort", "")
-    search_result = request.POST.get("search", "")
+    search_result = request.POST.get("search", None)
     name_filter = request.session.get('name_filter', '')
-    if search_result != '':
+    if search_result is not None:
         request.session['name_filter'] = search_result
         name_filter = request.session.get('name_filter', '')
     if post_result == 'Price - Low to high':
