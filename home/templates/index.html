@@ -21,13 +21,20 @@
                 <a class="navbar-brand" href="">PhoneCase.com</a>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Login</a></li>
-                                <li><a class="dropdown-item" href="#!">Register</a></li>
-                            </ul>
-                        </li>
+
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                                    <li><a class="dropdown-item" href="{% url 'register_user' %}">Register</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
@@ -38,6 +45,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- Header-->
         <!-- Section-->
         <section class="py-5 d-flex flex-column min-vh-100">
@@ -48,6 +56,17 @@
                     <p class="lead fw-normal text-white-50 mb-0">Why shouldn't your phone?</p>
                 </div>
             </div>
+        <!-------- MESSAGE FOR LOG OUT ---------->
+        <di class=" col-md-2">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>{% endfor %}
+            {% endif %}
+        </di>
+        <!-------- END MESSAGE FOR LOG OUT ---------->
         </header>
             {% if query_results|length > 0 %}
                 <ul class="d-flex justify-content-end me-5 gap-lg-3">
@@ -96,6 +115,7 @@
                 </ul>
                 <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
                 {% for item in query_results %}
                             <div class="col mb-5">
                                 <div class="card h-100">
