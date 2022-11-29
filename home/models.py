@@ -10,6 +10,8 @@ class Product(models.Model):
     quantity = models.IntegerField()
     image = models.ImageField(upload_to='images/')
     objects = models.Manager()
+    sale = models.BooleanField()
+    sale_price = models.IntegerField()
 
     def __str__(self):
         return self.name

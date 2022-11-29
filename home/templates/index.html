@@ -137,7 +137,14 @@
                                             {% else %}
                                                 <span style="color: #00ff00">{{ item.quantity }} left<br></span>
                                             {% endif %}
-                                            ${{ item.price }}
+                                            {% if item.sale %}
+                                                {% if item.sale_price > 0 %}
+                                                    <span class="text-muted text-decoration-line-through">${{ item.price }}</span>
+                                                    ${{ item.sale_price }}
+                                                {% endif %}
+                                            {% else %}
+                                                ${{ item.sale_price }}
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <!-- Product actions-->
