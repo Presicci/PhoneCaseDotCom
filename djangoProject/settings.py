@@ -30,12 +30,12 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'phonecasedotcom.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'phonecasedotcom.herokuapp.com', 'software-eng-project.herokuapp.com']
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 
-CSRF_TRUSTED_ORIGINS = ['https://phonecasedotcom.herokuapp.com']
+CSRF_TRUSTED_ORIGINS = ['https://phonecasedotcom.herokuapp.com', 'https://software-eng-project.herokuapp.com']
 
 # Application definition
 
@@ -90,7 +90,6 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 # Database
 #https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# ********* THOMAS DATABASE *********** #
 DATABASES = {
      'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
      #'default': {
@@ -98,14 +97,6 @@ DATABASES = {
      #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
      #}
 }
-
-# ******** DJANGO DATABASE ************ #
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 
 # Password validation
