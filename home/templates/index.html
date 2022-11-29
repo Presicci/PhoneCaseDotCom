@@ -130,8 +130,10 @@
                                             <!-- Product price-->
                                             {% if item.quantity == 0 %}
                                                 <span style="color: #ff0000">Out of stock<br></span>
+                                            {% elif item.quantity < 10 %}
+                                                <span style="color: #ffff00">Only {{ item.quantity }} left!<br></span>
                                             {% else %}
-                                                <span style="color: #00ff00">Only {{ item.quantity }} left!<br></span>
+                                                <span style="color: #00ff00">{{ item.quantity }} left<br></span>
                                             {% endif %}
                                             ${{ item.price }}
                                         </div>
