@@ -1,5 +1,7 @@
 # home/models.py
 from django.db import models
+from django.contrib.auth.models import User
+from datetime import datetime
 
 
 class Product(models.Model):
@@ -7,3 +9,4 @@ class Product(models.Model):
     price = models.IntegerField()
     quantity = models.IntegerField()
     image = models.ImageField(upload_to='images/')
+    objects = models.Manager()

@@ -98,6 +98,12 @@ span.price {
   color: grey;
 }
 
+.small-btn {
+        width: 50px;
+        height: 25px;
+        color: #111111;
+    }
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
 @media (max-width: 800px) {
   .row {
@@ -184,19 +190,22 @@ span.price {
         <label>
           <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
         </label>
-        <input type="submit" value="Continue to checkout" class="btn">
+        <a type="submit" class="btn" href="{% url 'cart_clear'%}">Checkout</a>
       </form>
     </div>
   </div>
   <div class="col-25">
     <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>{{request.session.cart|length}}</b></span></h4>
+        {% for key,value in request.session.cart.items %}
+      {{value.name}} qt: {{value.quantity}} price: ${{value.price}}<br>
+      <div class="text-center"><a class="small-btn"
+                                                                    href="{% url 'cart_add' value.product_id 2%}">Add</a>
+                                            <a class="small-btn"
+                                                                    href="{% url 'item_clear' value.product_id 2%}">Remove</a></div>
+      {% endfor %}
       <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>${{cart_total_amount}}</b></span></p>
     </div>
   </div>
 </div>
