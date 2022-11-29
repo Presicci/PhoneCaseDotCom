@@ -6,3 +6,4 @@ dj-database-url~=1.0.0
 psycopg2-binary~=2.9.5
 cart~=1.2.1
 dj-config-url~=0.1.1
+django-cloudinary-storage~=0.3.0
