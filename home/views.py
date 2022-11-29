@@ -16,17 +16,17 @@ def home_view(request):
         request.session['name_filter'] = search_result
         name_filter = request.session.get('name_filter', '')
     if post_result == 'Price - Low to high':
-        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter).order_by('price')
+        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter.lower()).order_by('price')
     elif post_result == 'Price - High to low':
-        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter).order_by('price') .reverse()
+        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter.lower()).order_by('price') .reverse()
     elif post_result == 'Availability - Low to high':
-        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter).order_by('quantity')
+        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter.lower()).order_by('quantity')
     elif post_result == 'Availability - High to low':
-        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter).order_by('quantity').reverse()
+        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter.lower()).order_by('quantity').reverse()
     elif post_result == 'Alphabetical - Z-A':
-        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter).order_by('name').reverse()
+        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter.lower()).order_by('name').reverse()
     else:
-        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter).order_by('name')
+        query_results = Product.objects.annotate(name_lower=Lower('name')).filter(name_lower__contains=name_filter.lower()).order_by('name')
     context = {'query_results': query_results}
     return render(request, 'index.html', context)
 
