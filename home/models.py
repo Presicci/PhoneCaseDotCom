@@ -10,3 +10,6 @@ class Product(models.Model):
     quantity = models.IntegerField()
     image = models.ImageField(upload_to='images/')
     objects = models.Manager()
+
+    def __str__(self):
+        return self.name
