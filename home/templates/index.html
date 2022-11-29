@@ -141,6 +141,8 @@
                                                 {% if item.sale_price > 0 %}
                                                     <span class="text-muted text-decoration-line-through">${{ item.price }}</span>
                                                     ${{ item.sale_price }}
+                                                {% else %}
+                                                    <span class="text-muted text-decoration-line-through">${{ item.price }}</span>
                                                 {% endif %}
                                             {% else %}
                                                 ${{ item.price }}
