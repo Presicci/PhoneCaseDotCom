@@ -68,7 +68,6 @@
         </di>
         <!-------- END MESSAGE FOR LOG OUT ---------->
         </header>
-            {% if query_results|length > 0 %}
                 <div>
                     <form method="POST" class="d-flex justify-content-center py-4">
                         <label>
@@ -115,6 +114,8 @@
                         </ul>
                     </ul>
                 </div>
+
+        {% if query_results|length > 0 %}
                 <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
@@ -153,7 +154,7 @@
                     {%  else %}
                         <div class="text-center text-white">
                             <img src="{% static 'saddog.png' %}" alt="Sad" style="width: 250px">
-                            <p class="lead fw-normal text-black-50 mb-0">There are currently no items for sale.</p>
+                            <p class="lead fw-normal text-black-50 mb-0">There are currently no items that match your search.</p>
                         </div>
                     {% endif %}
                 </div>
