@@ -68,50 +68,52 @@
         <!-------- END MESSAGE FOR LOG OUT ---------->
         </header>
             {% if query_results|length > 0 %}
-                <ul class="d-flex justify-content-end me-5 gap-lg-3">
-                    <form method="POST">
+                <div>
+                    <form method="POST" class="d-flex justify-content-center py-4">
                         <label>
-                            <input type="search" name="search" placeholder="Search...">
+                            <input style="background-color: #ffffff" type="search" name="search" placeholder="Search...">
                         </label>
-                        <button>Search</button>
+                        <button style="background-color: #85c2da" >Search</button>
                     </form>
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">Sort by</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li>
-                            <form method="POST" action="">
-                                <input class="dropdown-item" type="submit" name="sort" value='Price - Low to high'>
-                            </form>
-                        </li>
-                        <li>
-                            <form method="POST" action="">
-                                <input class="dropdown-item" type="submit" name="sort" value='Price - High to low'>
-                            </form>
-                        </li>
-                        <li>
-                            <form method="POST" action="">
-                                <input class="dropdown-item" type="submit" name="sort"
-                                       value='Availability - Low to high'>
-                            </form>
-                        </li>
-                        <li>
-                            <form method="POST" action="">
-                                <input class="dropdown-item" type="submit" name="sort"
-                                       value='Availability - High to low'>
-                            </form>
-                        </li>
-                        <li>
-                            <form method="POST" action="">
-                                <input class="dropdown-item" type="submit" name="sort" value='Alphabetical - A-Z'>
-                            </form>
-                        </li>
-                        <li>
-                            <form method="POST" action="">
-                                <input class="dropdown-item" type="submit" name="sort" value='Alphabetical - Z-A'>
-                            </form>
-                        </li>
+                    <ul class="d-flex justify-content-end me-5">
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li>
+                                <form method="POST" action="">
+                                    <input class="dropdown-item" type="submit" name="sort" value='Price - Low to high'>
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST" action="">
+                                    <input class="dropdown-item" type="submit" name="sort" value='Price - High to low'>
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST" action="">
+                                    <input class="dropdown-item" type="submit" name="sort"
+                                           value='Availability - Low to high'>
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST" action="">
+                                    <input class="dropdown-item" type="submit" name="sort"
+                                           value='Availability - High to low'>
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST" action="">
+                                    <input class="dropdown-item" type="submit" name="sort" value='Alphabetical - A-Z'>
+                                </form>
+                            </li>
+                            <li>
+                                <form method="POST" action="">
+                                    <input class="dropdown-item" type="submit" name="sort" value='Alphabetical - Z-A'>
+                                </form>
+                            </li>
+                        </ul>
                     </ul>
-                </ul>
+                </div>
                 <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
