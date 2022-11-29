@@ -4,6 +4,7 @@ from .views import home_view
 
 urlpatterns = [
     path("", home_view),
+    path("", home_view, name="home"),
     path('cart/add/<int:id>/<int:place>/', views.cart_add, name='cart_add'),
     path('cart/item_clear/<int:id>/<int:place>/', views.item_clear, name='item_clear'),
     path('cart/item_increment/<int:id>/',

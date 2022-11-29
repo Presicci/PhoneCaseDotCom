@@ -21,7 +21,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ('You logged out of PhoneCase.'))
-    return redirect('home')
+    return redirect("/")
 
 def register_user(request):
     if not request.method == 'POST':
