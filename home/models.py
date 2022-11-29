@@ -6,12 +6,12 @@ from datetime import datetime
 
 class Product(models.Model):
     name = models.CharField(max_length=30)
-    price = models.IntegerField()
-    quantity = models.IntegerField()
+    price = models.IntegerField(default=15)
+    quantity = models.IntegerField(default=100)
     image = models.ImageField(upload_to='images/')
     objects = models.Manager()
-    sale = models.BooleanField()
-    sale_price = models.IntegerField()
+    sale = models.BooleanField(default=0)
+    sale_price = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
